@@ -1,0 +1,40 @@
+
+<div class="wrap"><!--{Subst}-->
+    <p style="margin:0;padding:0;"><div id="icon-options-general" class="icon32"> </div><h2>{{kazoo_name}}:</h2></p>
+    <hr/>
+	<p style="text-align: right;"><a class="button-secondary" href="{{TplAdminURL}}">Back to Template Library</a></p>
+    <!--{IfTrue|TplHasMsg}-->
+	<div id="message" class="updated fade">{{TplMsg}}</div>
+	<!--{/IfTrue}-->
+    <div>
+        <form action="{{TplAdminURL}}&mode=update&id={{TplID}}" method="post">
+			<table width="600">
+			<tr>
+				<td valign="top">Short:</td>
+				<td valign="top">{{TplShort}}</td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" id="TplName" name="TplName" maxlength="64" size="48" value="{{TplName}}" /></td>
+			</tr>
+			<tr>
+				<td valign="top">Code:</td>
+				<td valign="top">
+					<textarea id="TplCode" name="TplCode" rows="24" cols="72" style="width:100%;height:100%;">{{TplCode}}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<table width="100%">
+						<tr>
+							<td><a class="button-secondary" href="{{TplAdminURL}}">Cancel</a></td>
+							<td align="right"><input class="button-primary" type="submit" value="{{TplEditText}}" /></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+        </form>
+    </div>
+<!--{/Subst}--></div>

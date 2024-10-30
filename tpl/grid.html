@@ -1,0 +1,95 @@
+
+<div class="wrap">
+    <table>
+		<tr>
+			<td><div id="icon-options-general" class="icon32"> </div></td>
+			<td valign="top" nowrap="true"><h2><!--{Replace|kazoo_name}-->kazoo_name<!--{/Replace}--></h2></td>
+		</tr>
+	</table>
+	<hr/>
+	<!--{IfTrue|TplHasMsg}-->
+	<div id="message"><!--{Replace|TplMsg}-->Error Message<!--{/Replace}--></div><br/>
+	<!--{/IfTrue}-->
+
+	<table width="100%">
+		<tr>
+			<td><h3>Content Templates:</h3></td>
+			<td width="150" align="center" valign="middle">
+				<a class="button-primary" href="<!--{Replace|TplAdminURL/}-->&mode=edit&id=0" title="Create Template">Create New Template</a>
+			</td>
+			<td width="150" align="center" valign="middle">
+				<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_xclick">
+				<input type="hidden" name="business" value="affriedl@gmail.com">
+				<input type="hidden" name="item_name" value="Kazoo Templated Content">
+				<input type="hidden" name="currency_code" value="USD">
+				<input type="hidden" name="amount" value="3.50">
+				<input type="image" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Donate with PayPal - it's fast, free and secure!">
+				</form>			
+			</td>
+		</tr>
+	</table>
+	
+    <table class="widefat">
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Code</th>
+			<th>Date</th>
+			<th> </th>
+		</tr>
+		</thead>
+		<tfoot>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Code</th>
+			<th>Date</th>
+			<th> </th>
+		</tr>
+		</tfoot>
+		<tbody>
+		<!--{TemplateRows}-->
+		<!--{Item}--><!--{Subst}--><tr>
+			<td width="40">{{TplID}}</td>
+			<td>{{TplName}}</td>
+			<td width="130">{{TplShort}}</td>
+			<td width="130">{{TplDate}}</td>
+			<td width="130" align="center">
+				<a class="button-secondary" href="{{TplAdminURL}}&mode=edit&id={{TplID}}">Edit</a>&nbsp;
+			    <input type="button" class="button-secondary" onClick="KzVerifyDelete('{{TplName}}','{{TplAdminURL}}&mode=delete&id={{TplID}}')" value="Delete" />
+			</td>
+		<!--{/Subst}--></tr><!--{/Item}-->
+		<!--{Else}--><tr><td colspan="5">No content templates have been defined.</td></tr>
+		<!--{/Else}-->
+		<!--{/TemplateRows}-->
+		</tbody>
+	</table>
+	
+	<h3>Help, Features, Comments:</h3>
+	<hr/>
+	<p>
+	Visit this plugin's homepage at: <a href="http://qure.us/kazoo">KazooPlugin.com</a> to request help
+	make a donation, or request additional features. If you are requesting help with a problem be sure to
+	specify the following:
+	</p>
+	<p>
+	<table style="margin-left: 30px;"><!--{subst}-->
+	<tr><td width="150">Kazoo Version:</td><td align="center">{{kazoo_version}}</td></tr>
+	<tr><td>Wordpress Version:</td><td align="center">{{wp_version}}</td></tr>
+	<tr><td>Other Plugins:</td><td align="center">&nbsp;</td></tr>
+	<!--{/subst}--></table>
+	</p>
+	<p>
+	<em>Note: If you find this plugin useful please consider making a donation!</em>
+	</p>
+	
+</div>
+<script language="javascript">
+function KzVerifyDelete(name,url) {
+	var msg = "Are you sure you want to delete template named '" + name + "'?";
+	if (confirm(msg))
+		document.location = url;
+}
+</script>
